@@ -41,7 +41,7 @@ function CustomDrawerContent(props) {
         onPress={() => props.navigation.closeDrawer()}
       />
       <DrawerItem
-        label="User drawer"
+        label="User_drawer"
         onPress={() => props.navigation.closeDrawer()}
       />
       <DrawerItem
