@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { View, Text, Button, Image, ScrollView,StyleSheet, TouchableHighlight } from 'react-native';
+import { View, Text, Button, Image, StyleSheet, ScrollView } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
+
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -9,173 +11,50 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 import Navigation from '../navigation';
+import { HeaderTitle } from '@react-navigation/stack';
+import { Home } from './Home';
+import { Company } from './Company';
+import { Task } from './Task';
+import { Payment } from './Payment';
+import { TaskTracking } from './TaskTracking';
+import {Card} from './Card';
+import { PendingPayment } from './PendingPayment';
 
-function Home({ navigation }) {
+
+
+function CustomerCare({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <View style={{flex:0.3,  width:'100%',  }}>
-        <ScrollView  horizontal={true} showsHorizontalScrollIndicator={false}>
-        <View style={{flexDirection:'row', justifyContent:'space-around', }}>
-        <TouchableHighlight >
-        <View  style={styles.card}>    
-          <Text style={styles.cardtext}>Company</Text>
-          <View style={styles.cardrow}>
-          <Ionicons name='business-sharp'  size='50px'color='rgb(218,165,32)'/>
-          <Text style={styles.cardrowtext}>10</Text>
-          </View>
-        </View>
-        </TouchableHighlight>
-        <TouchableHighlight >
-        <View  style={styles.card}>    
-          <Text style={styles.cardtext}>Task</Text>
-          <View style={styles.cardrow}>
-          <Ionicons name='document-sharp'  size='50px'color='rgb(218,165,32)'/>
-          <Text style={styles.cardrowtext}>10</Text>
-          </View>
-        </View>
-        </TouchableHighlight>
-        <TouchableHighlight>
-        <View  style={styles.card}>    
-          <Text style={styles.cardtext}>Paymet</Text>
-          <View style={styles.cardrow}>
-          <Ionicons name='cash-sharp'  size='50px'color='rgb(218,165,32)'/>
-          <Text style={styles.cardrowtext}>10</Text>
-          </View>
-        </View>
-        </TouchableHighlight>
-        <TouchableHighlight >
-        <View  style={styles.card}>    
-          <Text style={styles.cardtext}>Customercare</Text>
-          <View style={styles.cardrow}>
-          <Ionicons name='headset-sharp'  size='50px'color='rgb(218,165,32)'/>
-          <Text style={styles.cardrowtext}>10</Text>
-          </View>
-        </View>
-        </TouchableHighlight>
-        <TouchableHighlight >
-        <View  style={styles.cardpro}>    
-          <Text style={styles.cardtext}>Processig Task</Text>
-          <View style={styles.cardrow}>
-          <Ionicons name='document-outline'  size='50px'color='rgb(218,165,32)'/>
-          <Text style={styles.cardrowtext}>5</Text>
-          </View>
-        </View>
-        </TouchableHighlight>
-        <TouchableHighlight >
-        <View  style={styles.cardpro}>    
-          <Text style={styles.cardtext}>Pending Paymet</Text>
-          <View style={styles.cardrow}>
-          <Ionicons name='cash-outline'  size='50px'color='rgb(218,165,32)'/>
-          <Text style={styles.cardrowtext}>5</Text>
-          </View>
-        </View>
-        </TouchableHighlight>
-        <TouchableHighlight >
-        <View  style={styles.carddone}>    
-          <Text style={styles.cardtext}>Done Task</Text>
-          <View style={styles.cardrow}>
-          <Ionicons name='document'  size='50px'color='rgb(218,165,32)'/>
-          <Text style={styles.cardrowtext}>5</Text>
-          </View>
-        </View>
-        </TouchableHighlight>
-        <TouchableHighlight >
-        <View  style={styles.carddone}>    
-          <Text style={styles.cardtext}>Done Paymet</Text>
-          <View style={styles.cardrow}>
-          <Ionicons name='cash'  size='50px'color='rgb(218,165,32)'/>
-          <Text style={styles.cardrowtext}>5</Text>
-          </View>
-        </View>
-        </TouchableHighlight>
-         </View>
-         </ScrollView>  
-      </View>
-    <View style={{flex:0.7, backgroundColor:'rgb(102,0,102)',width:'100%',alignItems:'center'}}>
-      <View  style={{flex:1,backgroundColor:'rgba(255,255,255,0.2)',width:'75%',margin:'25px',padding:'25px',borderRadius:'25px', }} >
-      <View style={{flexDirection:'row'}}>
-      <TouchableHighlight >
-        <View  style={styles.cardcr}>    
-          <Text style={styles.cardtext}>Company</Text>
-          <View style={styles.car}>
-          <Ionicons name='business-sharp'  size='50px'color='rgb(218,165,32)'/>
-          <Text style={styles.cardrowtext}>10</Text>
-          </View>
-        </View>
-        </TouchableHighlight>
-        <TouchableHighlight >
-        <View  style={styles.cardcr}>    
-          <Text style={styles.cardtext}>Task</Text>
-          <View style={styles.card}>
-          <Ionicons name='document-sharp'  size='50px'color='rgb(218,165,32)'/>
-          <Text style={styles.cardrowtext}>10</Text>
-          </View>
-        </View>
-        </TouchableHighlight>
-        </View>
-        <View style={{flexDirection:'row'}}>
-        <TouchableHighlight>
-        <View  style={styles.cardcr}>    
-          <Text style={styles.cardtext}>Paymet</Text>
-          <View style={styles.card}>
-          <Ionicons name='cash-sharp'  size='50px'color='rgb(218,165,32)'/>
-          <Text style={styles.cardrowtext}>10</Text>
-          </View>
-        </View>
-        </TouchableHighlight>
-        <TouchableHighlight >
-        <View  style={styles.cardcr}>    
-          <Text style={styles.cardtext}>Customercare</Text>
-          <View style={styles.card}>
-          <Ionicons name='headset-sharp'  size='50px'color='rgb(218,165,32)'/>
-          <Text style={styles.cardrowtext}>10</Text>
-          </View>
-        </View>
-        </TouchableHighlight>
-        </View>
-      <Button title="Balck" onPress={() => navigation.openDrawer()}/>
-      </View>
+      <Text>CustomerCare Screen</Text>
+      <Button title="Balck" onPress={() => navigation.openDrawer()} />
     </View>
-  </View>
   );
 }
-
-function Notifications({ navigation }) {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <View >
-      <Text>Notifications Screen</Text>
-      <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
-      <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
-    </View>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Home Screen</Text>
-        <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
-        <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
-      </View></View>
-  );
-}
-
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
-      <View style={{padding:25,  backgroundColor:"red", marginTop:0, }}>
-        <Text>UserName</Text>
+      <ScrollView showsVerticalScrollIndicator={false}>
+      <View style={styles.userbar} >
+        <LinearGradient
+          // Background Linear Gradient
+          colors={['rgba(108,36,170,.80)', 'rgb(21,0,43)']}
+          style={styles.background}
+        />
+       <Image source={require('../assets/images/user.png')} style={styles.img}/>
+        <View>
+          <Text style={styles.username}>UserName</Text>
+        </View>
       </View>
+      
       <DrawerItemList {...props} />
+      
       <DrawerItem
-        label="Close drawer"
-        
+      
+        label="Close"
+       
         onPress={() => props.navigation.closeDrawer()}
       />
-      <DrawerItem
-        label="Userdrawer"
-        onPress={() => props.navigation.closeDrawer()}
-      />
-      <DrawerItem
-        label="Toggle drawer"
-        onPress={() => props.navigation.toggleDrawer()}
-      />
+      </ScrollView>
     </DrawerContentScrollView>
   );
 }
@@ -184,12 +63,88 @@ const Drawer = createDrawerNavigator();
 
 function MyDrawer() {
   return (
-    <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
-      <Drawer.Screen name="Home" component={Home} />
-      <Drawer.Screen name="Notifications" component={Notifications} />
+    <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />} drawerContentOptions={{activeTintColor: 'rgb(108,36,170)',}} >
+      <Drawer.Screen name="Home" component={Home} options={{ drawerIcon: (({ focused }) => <Ionicons name="business" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
+      <Drawer.Screen name="Company" component={Company} options={{ drawerIcon: (({ focused }) => <Ionicons name="business" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'}  />)}}/>
+      <Drawer.Screen name="Tasks" component={Task} options={{ drawerIcon: (({ focused }) => <Ionicons name="clipboard" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'}  />) }} />
+      <Drawer.Screen name="Payment" component={Payment} options={{ drawerIcon: (({ focused }) => <Ionicons name="card" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
+      <Drawer.Screen name="TasksTracking" component={TaskTracking} options={{ drawerIcon: (({ focused }) => <Ionicons name="clipboard" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
+      <Drawer.Screen name="PendingPayment" component={PendingPayment} options={{ drawerIcon: (({ focused }) => <Ionicons name='card-outline' size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
+      <Drawer.Screen name="CustomerCare" component={CustomerCare} options={{ drawerIcon: (({ focused }) => <Ionicons name="headset" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
     </Drawer.Navigator>
   );
 }
+
+
+export const styles = StyleSheet.create({
+  img:{
+    height:100,
+    width:100,
+    marginBottom:10,
+    borderRadius:25,
+    
+  },
+  userbar: {
+    padding: 10,
+    marginTop: 0, 
+    flexDirection: 'row',
+    alignItems: 'center',
+   height:"25%",
+  },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: "100%",
+    color: "rgb(21,0,43)"
+  },
+  username:{
+    padding: 20,
+    fontSize: 20, 
+    color: "rgb(225,255,255)", 
+    
+  },
+  car: {
+    padding: 20,
+    backgroundColor: 'rgb(102,0,102)',
+    borderRadius: 20,
+    margin: 20,
+  },
+  textbox: {
+
+    padding: 20,
+    textAlign: "left",
+    borderBottomWidth: 1,
+    borderBottomColor: "rgb(218,165,32)",
+    color: "rgb(218,165,32)",
+    fontSize: 20,
+    fontWeight: "bold",
+    width: 250
+
+  },
+
+  textboxn: {
+    margin:10,
+    padding: 10,
+    textAlign: "left",
+    borderBottomWidth: 1,
+    borderBottomColor: "rgb(218,165,32)",
+    color: "rgb(218,165,32)",
+    fontSize: 20,
+    fontWeight: "bold",
+    width:75,
+  },
+  row: {
+    flexDirection: "row",
+    justifyContent: 'center',
+    alignItems: "center",
+    margin: 10,
+
+  }
+
+});
+
 
 export default function App() {
   return (
@@ -198,46 +153,3 @@ export default function App() {
     
   );
 }
-
-
-const styles = StyleSheet.create({
-  card: {
-    padding:'20px',
-    backgroundColor:'rgb(102,0,102)',
-    borderRadius:'20px', 
-    margin:'20px',
-  },
-  cardpro: {
-    padding:'20px',
-    backgroundColor:'rgb(128,0,0)',
-    borderRadius:'20px', 
-    margin:'20px',
-  },
-  carddone: {
-    padding:'20px',
-    backgroundColor:'rgb(0,128,0)',
-    borderRadius:'20px', 
-    margin:'20px',
-  },
-  cardcr: {
-    padding:'20px',
-    backgroundColor:'rgb(255,255,255)',
-    borderRadius:'20px', 
-    margin:'20px',
-  },
-  cardtext: {
-    flexWrap:'wrap',
-    fontSize:'20px',
-    textAlign:'center', 
-    color:'rgb(218,165,32)'
-  },
-  cardrow: {
-    flexDirection:'row', 
-    alignItems:'baseline', 
-    marginTop:'20'
-  },
-  cardrowtext:{
-    fontSize:'60px',
-    color:'rgb(255,204,0)',
-  },
-});

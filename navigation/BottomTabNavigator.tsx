@@ -16,20 +16,22 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+    initialRouteName="Login"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name="TabOne"
+        name="Login"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="log-in-outline" color={color} />, 
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name="Register"
         component={TabTwoNavigator}
+        activeBackgroundColor="rgb(255,0,0)"
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+         
+          tabBarIcon: ({ color }) => <TabBarIcon name="reader-outline" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -50,9 +52,13 @@ function TabOneNavigator() {
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
-        name="TabOneScreen"
+        name="Login"
         component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+        options={{ headerTitle: 'Login' , headerStyle: {
+          backgroundColor: '#8D57BC'}, headerTitleStyle: {
+            fontWeight: 'bold',
+            color: 'rgb(255,255,255)'
+          }, }}
       />
     </TabOneStack.Navigator>
   );
@@ -64,9 +70,12 @@ function TabTwoNavigator() {
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
-        name="TabTwoScreen"
+        name="Register"
         component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+        options={{ headerTitle: 'Register',headerStyle: {
+          backgroundColor: '#8D57BC'}, headerTitleStyle: {
+            fontWeight: 'bold',
+            color: 'rgb(255,255,255)'}, }}
       />
     </TabTwoStack.Navigator>
   );

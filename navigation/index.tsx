@@ -2,9 +2,9 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
-
+import Otp from  '../screens/Otp';
+import App  from '../screens/Index';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import Index from '../screens/Index';
 import { RootStackParamList } from '../types';
 import BottomTabNavigator from './BottomTabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
@@ -27,9 +27,14 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Root" component={Index} />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+    <Stack.Navigator >
+      <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
+      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ headerShown: false }}  />
+      <Stack.Screen name="OtpScreen" component={Otp}  
+      options={{ headerTitle: 'User',headerStyle: {backgroundColor: '#8D57BC'}, 
+      headerTitleStyle: {fontWeight: 'bold',color: 'rgb(255,255,255)'}, }}/>
+      <Stack.Screen name="Apps" component={App} options={{ headerShown: false }}/>
     </Stack.Navigator>
   );
 }
+
