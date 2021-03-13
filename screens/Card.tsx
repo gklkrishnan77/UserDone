@@ -8,7 +8,7 @@ export function Card() {
         <View style={styles.app}>
             <CollapsibleCard
                 title = {<View style={{backgroundColor:'red' , padding:25, borderRadius: 25,}}>
-                    <Text> HI</Text>
+                    <Text> HI tis card </Text>
                 </View>}
                 style={{ marginBottom: 16 }}>
                 <View style={{ padding: 8 }}>
@@ -16,10 +16,7 @@ export function Card() {
                     <Text style={styles.paragraph}>Hello World</Text>
                 </View>
             </CollapsibleCard>
-
-         
-
-            <SampleEasing />
+         <SampleEasing />
         </View>
     );
 }
