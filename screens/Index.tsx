@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Button, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Button, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
@@ -19,7 +19,6 @@ import { Payment } from './Payment';
 import { TaskTracking } from './TaskTracking';
 import {Card} from './Card';
 import { PendingPayment } from './PendingPayment';
-
 
 
 function CustomerCare({ navigation }) {
@@ -64,13 +63,13 @@ const Drawer = createDrawerNavigator();
 function MyDrawer() {
   return (
     <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />} drawerContentOptions={{activeTintColor: 'rgb(108,36,170)',}} >
-      <Drawer.Screen name="Home" component={Home} options={{ drawerIcon: (({ focused }) => <Ionicons name="business" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
-      <Drawer.Screen name="Company" component={Company} options={{ drawerIcon: (({ focused }) => <Ionicons name="business" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'}  />)}}/>
-      <Drawer.Screen name="Tasks" component={Task} options={{ drawerIcon: (({ focused }) => <Ionicons name="clipboard" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'}  />) }} />
-      <Drawer.Screen name="Payment" component={Payment} options={{ drawerIcon: (({ focused }) => <Ionicons name="card" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
-      <Drawer.Screen name="TasksTracking" component={TaskTracking} options={{ drawerIcon: (({ focused }) => <Ionicons name="clipboard" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
-      <Drawer.Screen name="PendingPayment" component={PendingPayment} options={{ drawerIcon: (({ focused }) => <Ionicons name='card-outline' size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
-      <Drawer.Screen name="CustomerCare" component={CustomerCare} options={{ drawerIcon: (({ focused }) => <Ionicons name="headset" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
+      <Drawer.Screen name="Home" component={Home} options={{headerShown:true, headerTitle: props => <LogoTitle {...props} />, headerStyle: {backgroundColor: 'rgb(102,0,102)'}, headerTitleStyle: {fontWeight: 'bold',color: 'rgb(255,255,255)', textAlign:'center' ,justifyContent:'center'}, drawerIcon: (({ focused }) => <Ionicons name="business" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
+      <Drawer.Screen name="Company" component={Company} options={{headerShown:true,headerStyle: {backgroundColor: 'rgb(102,0,102)'}, headerTitleStyle: {fontWeight: 'bold',color: 'rgb(255,255,255)', textAlign:'center' ,justifyContent:'center'}, drawerIcon: (({ focused }) => <Ionicons name="business" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'}  />)}}/>
+      <Drawer.Screen name="Tasks" component={Task} options={{ headerShown:true, headerStyle: {backgroundColor: 'rgb(102,0,102)'},headerTitleStyle: {fontWeight: 'bold',color: 'rgb(255,255,255)', textAlign:'center' ,justifyContent:'center'},drawerIcon: (({ focused }) => <Ionicons name="clipboard" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'}  />) }} />
+      <Drawer.Screen name="Payment" component={Payment} options={{ headerShown:true,headerStyle: {backgroundColor: 'rgb(102,0,102)'},headerTitleStyle: {fontWeight: 'bold',color: 'rgb(255,255,255)', textAlign:'center' ,justifyContent:'center'}, drawerIcon: (({ focused }) => <Ionicons name="card" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
+      <Drawer.Screen name="TasksTracking" component={TaskTracking} options={{headerShown:true,headerStyle: {backgroundColor: 'rgb(102,0,102)'},headerTitleStyle: {fontWeight: 'bold',color: 'rgb(255,255,255)', textAlign:'center' ,justifyContent:'center'}, drawerIcon: (({ focused }) => <Ionicons name="clipboard" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
+      <Drawer.Screen name="PendingPayment" component={PendingPayment} options={{ headerShown:true,headerStyle: {backgroundColor: 'rgb(102,0,102)'}, headerTitleStyle: {fontWeight: 'bold',color: 'rgb(255,255,255)', textAlign:'center' ,justifyContent:'center'},drawerIcon: (({ focused }) => <Ionicons name='card-outline' size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
+      <Drawer.Screen name="CustomerCare" component={CustomerCare} options={{ headerShown:true, headerStyle: {backgroundColor: 'rgb(102,0,102)'},headerTitleStyle: {fontWeight: 'bold',color: 'rgb(255,255,255)', textAlign:'center' ,justifyContent:'center'}, drawerIcon: (({ focused }) => <Ionicons name="headset" size={20} color={focused ? 'rgb(108,36,170)' : 'rgb(200,200,200)'} />) }} />
     </Drawer.Navigator>
   );
 }
@@ -150,6 +149,19 @@ export default function App() {
   return (
     
       <MyDrawer />
+    
+  );
+}
+
+
+function LogoTitle() {
+  return (<View style={{flexDirection:'row', alignItems:'center', justifyContent:'center'}}>
+    <Image
+      style={{ width: 30, height: 30 }}
+      source={require('../assets/images/logo192.png')}
+    />
+    <Text style={{fontSize:30, fontWeight:'bold', padding:25, color:'rgb(218,165,32)'}}>AASVA</Text>
+  </View>
     
   );
 }

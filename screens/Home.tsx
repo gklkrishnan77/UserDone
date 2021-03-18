@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 export function Home({ navigation }) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'rgba(102,0,102,0.5)' }}>
       <View style={{ flex: 0.3, width: '100%', }}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-around', }}>
